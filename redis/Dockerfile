@@ -39,8 +39,11 @@ RUN yum -y install redis; yum clean all
 
 ##
 ## config
-RUN sed -i -e "s/daemonize no/daemonize yes/g" /etc/redis.conf
 RUN sed -i -e "s/bind 127.0.0.1/bind 0.0.0.0/g" /etc/redis.conf
+
+##
+## if you need to run redis as a deamon
+# RUN sed -i -e "s/daemonize no/daemonize yes/g" /etc/redis.conf
 
 EXPOSE 6379
 
