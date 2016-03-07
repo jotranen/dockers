@@ -37,10 +37,11 @@ RUN /usr/bin/mysql_install_db --user=mysql --ldata=/var/lib/mysql
 
 ## 
 ## configure mysql
+COPY setup.sql /root/
 RUN \
    /usr/bin/mysqld_safe --nowatch && \
-   sleep 3 && \
-   /usr/bin/mysql -uroot -h127.0.0.1 -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;" && \
+   sleep 5 && \
+   /usr/bin/mysql -uroot -h127.0.0.1 < /root/setup.sql && \
    /usr/bin/mysqladmin -u root shutdown
 
 ##

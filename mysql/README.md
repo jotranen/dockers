@@ -1,5 +1,7 @@
 # Simple MariaDB Docker Container
 
+## Usage
+
 ### Build
 
 ```
@@ -9,7 +11,7 @@
 ### Remove Container (if exists)
 
 ```
-∴ docker rm mysql-local
+∴ docker rm -f mysql-local
 ```
 
 ### Run
@@ -22,3 +24,8 @@
 ```
 docker exec -ti mysql-local /bin/bash
 ```
+
+## Configuration
+
+Use setup.sql file to define SQL commands needed to initialize database instance.
+
